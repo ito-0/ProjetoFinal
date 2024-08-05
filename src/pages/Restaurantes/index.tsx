@@ -21,42 +21,42 @@ const pratosLaDolce: RestPrato[] = [
     description:
       'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!',
     image: pizzaMarguerita,
-    title: 'Hioki Sushi'
+    title: 'Pizza Marguerita'
   },
   {
     id: 2,
     description:
       'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!',
     image: pizzaMarguerita,
-    title: 'Hioki Sushi'
+    title: 'Pizza Marguerita'
   },
   {
     id: 3,
     description:
       'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!',
     image: pizzaMarguerita,
-    title: 'Hioki Sushi'
+    title: 'Pizza Marguerita'
   },
   {
     id: 4,
     description:
       'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!',
     image: pizzaMarguerita,
-    title: 'Hioki Sushi'
+    title: 'Pizza Marguerita'
   },
   {
     id: 5,
     description:
       'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!',
     image: pizzaMarguerita,
-    title: 'Hioki Sushi'
+    title: 'Pizza Marguerita'
   },
   {
     id: 6,
     description:
       'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!',
     image: pizzaMarguerita,
-    title: 'Hioki Sushi'
+    title: 'Pizza Marguerita'
   }
 ];
 

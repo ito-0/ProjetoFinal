@@ -19,7 +19,6 @@ export const GlobalCSS = createGlobalStyle`
 
   body {
     color: ${cores.rosaEscuro};
-    padding-top: 40px;
   }
 
   .container {

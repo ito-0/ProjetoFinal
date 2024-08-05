@@ -1,30 +1,39 @@
-import { HeaderBar, LinkCart, LinkItem, Links, Logo } from './syles';
+import { BannerTitle, HeaderBar, LinkItem, Links, Logo } from './syles';
 
 import logo from '../../assets/images/logo.png';
 import bannerImg from '../../assets/images/bannerImg.png';
-import carrinho from '../../assets/images/carrinho.svg';
+import { useLocation } from 'react-router-dom';
+import { useEffect, useState } from 'react';
 
-const Header = () => (
-  <HeaderBar style={{ backgroundImage: `url(${bannerImg})` }}>
-    <div>
+const Header = () => {
+  const location = useLocation();
+  const [isVisible, setIsVisible] = useState(true);
+
+  useEffect(() => {
+    // Define isVisible com base na URL atual
+    setIsVisible(location.pathname !== '/restaurantes');
+  }, [location.pathname]);
+
+  return (
+    <HeaderBar style={{ backgroundImage: `url(${bannerImg})` }}>
       <Logo src={logo} alt="efood" />
       <nav>
-        <Links>
-          <LinkItem>
-            <a href="/">Home</a>
-          </LinkItem>
+        <Links className={isVisible ? '' : 'visivel'}>
           <LinkItem>
             <a href="/restaurantes">Restaurantes</a>
           </LinkItem>
+          <LinkItem>
+            <a href="/restaurantes">0 - produto(s)</a>
+          </LinkItem>
         </Links>
       </nav>
-    </div>
-
-    <LinkCart href="#">
-      0 - produto(s)
-      <img src={carrinho} alt="Carrinho" />
-    </LinkCart>
-  </HeaderBar>
-);
+      {isVisible && (
+        <BannerTitle>
+          Viva experiências gastronômicas no conforto da sua casa
+        </BannerTitle>
+      )}
+    </HeaderBar>
+  );
+};
 
 export default Header;

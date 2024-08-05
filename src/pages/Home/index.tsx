@@ -1,4 +1,3 @@
-import Banner from '../../components/Banner';
 import ProductsList from '../../components/ProductsList';
 import Prato from '../../models/Prato';
 
@@ -25,7 +24,7 @@ const destaques: Prato[] = [
       'A La Dolce Vita Trattoria leva a autêntica cozinha italiana até você! Desfrute de massas caseiras, pizzas deliciosas e risotos incríveis, tudo no conforto do seu lar. Entrega rápida, pratos bem embalados e sabor inesquecível. Peça já!',
     image: comidaUm,
     infos: ['Italiana'],
-    title: 'Hioki Sushi'
+    title: 'La Dolce Vita Trattoria'
   },
   {
     id: 3,
@@ -35,7 +34,7 @@ const destaques: Prato[] = [
       'A La Dolce Vita Trattoria leva a autêntica cozinha italiana até você! Desfrute de massas caseiras, pizzas deliciosas e risotos incríveis, tudo no conforto do seu lar. Entrega rápida, pratos bem embalados e sabor inesquecível. Peça já!',
     image: comidaUm,
     infos: ['Italiana'],
-    title: 'Hioki Sushi'
+    title: 'La Dolce Vita Trattoria'
   },
   {
     id: 4,
@@ -45,7 +44,7 @@ const destaques: Prato[] = [
       'A La Dolce Vita Trattoria leva a autêntica cozinha italiana até você! Desfrute de massas caseiras, pizzas deliciosas e risotos incríveis, tudo no conforto do seu lar. Entrega rápida, pratos bem embalados e sabor inesquecível. Peça já!',
     image: comidaUm,
     infos: ['Italiana'],
-    title: 'Hioki Sushi'
+    title: 'La Dolce Vita Trattoria'
   },
   {
     id: 5,
@@ -55,7 +54,7 @@ const destaques: Prato[] = [
       'A La Dolce Vita Trattoria leva a autêntica cozinha italiana até você! Desfrute de massas caseiras, pizzas deliciosas e risotos incríveis, tudo no conforto do seu lar. Entrega rápida, pratos bem embalados e sabor inesquecível. Peça já!',
     image: comidaUm,
     infos: ['Italiana'],
-    title: 'Hioki Sushi'
+    title: 'La Dolce Vita Trattoria'
   },
   {
     id: 6,
@@ -65,14 +64,13 @@ const destaques: Prato[] = [
       'A La Dolce Vita Trattoria leva a autêntica cozinha italiana até você! Desfrute de massas caseiras, pizzas deliciosas e risotos incríveis, tudo no conforto do seu lar. Entrega rápida, pratos bem embalados e sabor inesquecível. Peça já!',
     image: comidaUm,
     infos: ['Italiana'],
-    title: 'Hioki Sushi'
+    title: 'La Dolce Vita Trattoria'
   }
 ];
 
 const Home = () => (
   <>
-    <Banner />
-    <ProductsList pratos={destaques} background="rosaClaro" title="Destaques" />
+    <ProductsList pratos={destaques} background="rosaClaro" title="" />
   </>
 );
 

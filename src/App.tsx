@@ -12,9 +12,7 @@ function App() {
     <>
       <BrowserRouter>
         <GlobalCSS />
-        <div className="container">
-          <Header />
-        </div>
+        <Header />
         <Rotas />
         <Footer />
       </BrowserRouter>

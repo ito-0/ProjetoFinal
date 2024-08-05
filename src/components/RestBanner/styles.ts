@@ -25,11 +25,11 @@ export const Imagem = styled.div`
     flex-direction: column;
     justify-content: space-between;
     height: 100%;
-    padding: 16px;
+    padding: 16px 0;
   }
 `;
 
 export const Category = styled.h2`
   font-size: 32px;
-  font-weight: normal;
+  font-weight: 100;
 `;
