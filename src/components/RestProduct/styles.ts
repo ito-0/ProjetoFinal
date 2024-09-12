@@ -8,15 +8,15 @@ export const Card = styled.div`
   border: 1px solid ${cores.rosaEscuro};
   color: ${cores.rosaClaro};
   padding: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
 
   ${ButtonLink} {
     display: flex;
-    border: none;
-    color: ${cores.rosaEscuro};
-    background-color: ${cores.rosaClaro};
-    font-size: 14px;
-    font-weight: bold;
     justify-content: center;
+  }
 `;
 
 export const Titulo = styled.h3`
@@ -30,4 +30,34 @@ export const Descricao = styled.p`
   line-height: 22px;
   display: block;
   margin: 8px 0;
+`;
+
+export const Action = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+`;
+
+export const ImageContainer = styled.div`
+  position: relative;
+
+  > img {
+    object-fit: cover;
+    height: 160px;
+    width: 300px;
+  }
+
+  &:hover {
+    ${Action} {
+      opacity: 1;
+      transition: opacity 0.5s ease;
+    }
+  }
 `;

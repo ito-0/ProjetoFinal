@@ -1,4 +1,4 @@
-import { BannerTitle, HeaderBar, LinkItem, Links, Logo } from './syles';
+import { BannerTitle, HeaderBar, LinkItem, Links, Logo } from './styles';
 
 import logo from '../../assets/images/logo.png';
 import bannerImg from '../../assets/images/bannerImg.png';
@@ -10,8 +10,11 @@ const Header = () => {
   const [isVisible, setIsVisible] = useState(true);
 
   useEffect(() => {
-    // Define isVisible com base na URL atual
-    setIsVisible(location.pathname !== '/restaurantes');
+    const currentPath = location.pathname;
+    console.log(`Current path: ${currentPath}`); // Adicionado para depuração
+    const visible = !currentPath.startsWith('/restaurantes');
+    setIsVisible(visible);
+    console.log(`Is visible: ${visible}`); // Adicionado para depuração
   }, [location.pathname]);
 
   return (
@@ -20,7 +23,7 @@ const Header = () => {
       <nav>
         <Links className={isVisible ? '' : 'visivel'}>
           <LinkItem>
-            <a href="/restaurantes">Restaurantes</a>
+            <a href="/#">Restaurantes</a>
           </LinkItem>
           <LinkItem>
             <a href="/restaurantes">0 - produto(s)</a>

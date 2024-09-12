@@ -6,44 +6,50 @@ import {
   Titulo,
   Infos,
   Nota,
-  TituloNotaContainer
+  TituloNotaContainer,
+  CapaImg
 } from './styles';
 
+import star from '../../assets/images/estrela.png';
+
 type Props = {
-  title: string;
-  category: string;
-  description: string;
-  infos: string[];
+  id: number;
+  titulo: string;
+  tipo: string;
+  descricao: string;
+  destacado: string[];
   image: string;
-  star: string;
+  nota: string;
 };
 
 const Product = ({
-  title,
-  category,
-  description,
-  infos,
+  id,
+  titulo,
+  tipo,
+  descricao,
+  destacado,
   image,
-  star
+  nota
 }: Props) => (
   <Card>
-    <img src={image} alt={title} srcSet="" />
+    <CapaImg src={image} alt={titulo} srcSet="" />
     <Infos>
-      {infos.map((infos) => (
-        <Tag key={infos}>{infos}</Tag>
+      {destacado.map((destacado) => (
+        <Tag key={destacado}>Destaque da semana</Tag>
       ))}
+      <Tag>{tipo}</Tag>
     </Infos>
     <TituloNotaContainer>
-      <Titulo>{title}</Titulo>
+      <Titulo>{titulo}</Titulo>
       <Nota>
-        {category}
+        {nota}
         <img src={star} alt="estrela" srcSet="" />
       </Nota>
     </TituloNotaContainer>
-    <Descricao>{description}</Descricao>
+    <Descricao>{descricao}</Descricao>
     <Button
       type="link"
-      to="/restaurantes"
+      to={`/restaurantes/${id}`}
       title="Clique aqui para aproveitar este prato"
     >
       Saiba mais

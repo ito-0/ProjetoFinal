@@ -24,6 +24,12 @@ export const Card = styled.div`
   }
 `;
 
+export const CapaImg = styled.img`
+  height: 216px;
+  width: 100%;
+  object-fit: cover;
+`;
+
 export const Titulo = styled.h3`
   font-weight: bold;
   font-size: 18px;
@@ -35,9 +41,11 @@ export const Nota = styled.h3`
   display: flex;
   align-items: center;
 
-  img {
+  > img {
     margin-left: 8px;
     margin-top: -4px;
+    height: 21px;
+    width: 21px;
   }
 `;
 

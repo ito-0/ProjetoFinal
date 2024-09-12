@@ -1,16 +1,15 @@
+import { Prato } from '../../pages/Home';
 import { Category, Imagem } from './styles';
 
 type Props = {
-  title: string;
-  category: string;
-  image: string;
+  banner: Prato;
 };
 
-const RestBanner = ({ title, category, image }: Props) => (
-  <Imagem style={{ backgroundImage: `url(${image})` }}>
+const RestBanner = ({ banner }: Props) => (
+  <Imagem style={{ backgroundImage: `url(${banner.capa})` }}>
     <div className="container">
-      <Category>{category}</Category>
-      <h1>{title}</h1>
+      <Category>{banner.tipo}</Category>
+      <h1>{banner.titulo}</h1>
     </div>
   </Imagem>
 );

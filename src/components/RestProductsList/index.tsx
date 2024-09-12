@@ -1,23 +1,26 @@
-import RestPrato from '../../models/RestPrato';
+import { Prato } from '../../pages/Home';
 import RestProduct from '../RestProduct';
-
 import { Container, List } from './styles';
 
 export type Props = {
   background: 'rosaClaro' | 'branca' | 'rosaEscuro';
-  pratos: RestPrato[];
+  cardapio: Prato['cardapio'][]; // Corrija para aceitar o array correto
 };
 
-const RestProductsList = ({ background, pratos }: Props) => (
+const RestProductsList = ({ background, cardapio }: Props) => (
   <Container background={background}>
     <div className="container">
       <List>
-        {pratos.map((prato) => (
+        {cardapio.map((item) => (
           <RestProduct
-            key={prato.id}
-            description={prato.description}
-            image={prato.image}
-            title={prato.title}
+            defaultCover={item.foto} // Acessa a propriedade correta
+            name={item.nome} // Acessa o nome do prato diretamente
+            key={item.id} // Usa o id correto
+            description={item.descricao} // Acessa a descrição diretamente
+            title={item.nome} // Usa o nome do prato para o título
+            items={[{ foto: item.foto }]} // Passa o array correto de fotos
+            porcao={item.porcao}
+            preco={item.preco}
           />
         ))}
       </List>

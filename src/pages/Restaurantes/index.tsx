@@ -1,70 +1,35 @@
+import { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
+import { Prato } from '../Home';
 import RestProductsList from '../../components/RestProductsList';
-import RestPrato from '../../models/RestPrato';
-import RestBannerAp from '../../models/RestApresenta';
-import RestBannerFinal from '../../components/RestBannerFinal';
+import RestBanner from '../../components/RestBanner';
 
-import pizzaMarguerita from '../../assets/images/pizzaMarguerita.png';
-import comidaUm from '../../assets/images/comidaUm.png';
+const Restaurantes = () => {
+  const { id } = useParams();
 
-const bannerLaDolce: RestBannerAp[] = [
-  {
-    id: 1,
-    image: comidaUm,
-    title: 'La Dolce Vita Trattoria',
-    category: 'Italiana'
+  const [banner, setBanner] = useState<Prato | null>(null); // Inicializa como null para evitar erro
+  const [cardapio, setCardapio] = useState<Prato['cardapio'][]>([]); // Corrige para ser um array de objetos do cardapio
+
+  useEffect(() => {
+    fetch(`https://fake-api-tau.vercel.app/api/efood/restaurantes/${id}`)
+      .then((res) => res.json())
+      .then((res) => {
+        setBanner(res);
+        setCardapio(res.cardapio); // Corrige para acessar corretamente a propriedade cardapio, que deve ser um array
+      })
+      .catch((error) => console.error('Erro ao buscar dados:', error));
+  }, [id]);
+
+  if (!banner) {
+    return <h3>Carregando...</h3>;
   }
-];
 
-const pratosLaDolce: RestPrato[] = [
-  {
-    id: 1,
-    description:
-      'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!',
-    image: pizzaMarguerita,
-    title: 'Pizza Marguerita'
-  },
-  {
-    id: 2,
-    description:
-      'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!',
-    image: pizzaMarguerita,
-    title: 'Pizza Marguerita'
-  },
-  {
-    id: 3,
-    description:
-      'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!',
-    image: pizzaMarguerita,
-    title: 'Pizza Marguerita'
-  },
-  {
-    id: 4,
-    description:
-      'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!',
-    image: pizzaMarguerita,
-    title: 'Pizza Marguerita'
-  },
-  {
-    id: 5,
-    description:
-      'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!',
-    image: pizzaMarguerita,
-    title: 'Pizza Marguerita'
-  },
-  {
-    id: 6,
-    description:
-      'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!',
-    image: pizzaMarguerita,
-    title: 'Pizza Marguerita'
-  }
-];
-
-const Restaurantes = () => (
-  <>
-    <RestBannerFinal banners={bannerLaDolce} />
-    <RestProductsList pratos={pratosLaDolce} background="rosaClaro" />
-  </>
-);
+  return (
+    <>
+      <RestBanner banner={banner} />
+      <RestProductsList cardapio={cardapio} background="rosaClaro" />
+    </>
+  );
+};
 
 export default Restaurantes;
