@@ -5,8 +5,12 @@ import { ButtonLink } from '../Button/styles';
 
 export const Card = styled.div`
   background-color: ${cores.branca};
-  position: relative;
   border: 1px solid ${cores.rosaEscuro};
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  position: relative;
 
   ${TagContainer} {
     margin-right: 8px;
@@ -14,13 +18,10 @@ export const Card = styled.div`
 
   ${ButtonLink} {
     margin: 8px;
+    align-self: flex-start;
     display: inline-block;
-    border: none;
     color: ${cores.rosaClaro};
     background-color: ${cores.rosaEscuro};
-    font-size: 14px;
-    font-weight: bold;
-    padding: 6px;
   }
 `;
 

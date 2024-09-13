@@ -51,7 +51,7 @@ export const ImageContainer = styled.div`
   > img {
     object-fit: cover;
     height: 160px;
-    width: 300px;
+    width: 100%;
   }
 
   &:hover {
