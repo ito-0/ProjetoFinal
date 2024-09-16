@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import { cores } from '../../styles';
-import { ButtonLink } from '../Button/styles';
 
 export const Card = styled.div`
   background-color: ${cores.rosaEscuro};
@@ -13,9 +12,10 @@ export const Card = styled.div`
   justify-content: space-between;
   height: 100%;
 
-  ${ButtonLink} {
-    display: flex;
-    justify-content: center;
+  button {
+    background-color: ${cores.rosaMedio};
+    color: ${cores.rosaEscuro};
+    cursor: pointer;
   }
 `;
 
@@ -47,6 +47,7 @@ export const Action = styled.div`
 
 export const ImageContainer = styled.div`
   position: relative;
+  cursor: pointer;
 
   > img {
     object-fit: cover;

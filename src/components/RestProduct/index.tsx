@@ -57,9 +57,9 @@ const RestProduct = ({
         <Titulo>{title}</Titulo>
         <Descricao>{description}</Descricao>
         <Button
-          type="link"
-          to="/restaurantes"
-          title="Clique aqui para aproveitar este prato"
+          type="button"
+          title="Expandir"
+          onClick={() => handleOpenModal(defaultCover)}
         >
           Adicionar ao carrinho
         </Button>
