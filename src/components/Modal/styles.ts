@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { cores } from '../../styles';
 import { ButtonLink } from '../Button/styles';
 
-export const Modal = styled.div`
+export const ModalCustom = styled.div`
   position: fixed;
   top: 0;
   left: 0;
@@ -50,9 +50,11 @@ export const ModalInfo = styled.div`
     margin-bottom: 16px;
   }
 
-  ${ButtonLink} {
+  Button {
     align-self: flex-start;
     margin-top: 0;
+    background-color: ${cores.rosaMedio};
+    color: ${cores.rosaEscuro};
   }
 `;
 

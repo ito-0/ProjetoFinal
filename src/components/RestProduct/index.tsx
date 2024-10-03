@@ -1,11 +1,14 @@
 import { useState } from 'react';
+import { useDispatch } from 'react-redux'; // Importar useDispatch
 import Button from '../Button';
 import CustomModal from '../Modal';
 import { Action, Card, Descricao, ImageContainer, Titulo } from './styles';
-
 import zoom from '../../assets/images/zoom.png';
+import { CartItem, Prato } from '../../pages/Home';
+import { add } from '../../store/reducers/cart'; // Importar a ação add
 
 interface GalleryItem {
+  id: number;
   foto: string;
 }
 
@@ -14,9 +17,10 @@ type Props = {
   description: string;
   defaultCover: string;
   name: string;
-  items: GalleryItem[];
-  porcao: string; // Array com as fotos
+  items: GalleryItem[]; // Array de objetos com id e foto
+  porcao: string;
   preco: number;
+  cardapio: Prato['cardapio'];
 };
 
 const RestProduct = ({
@@ -26,29 +30,44 @@ const RestProduct = ({
   name,
   items,
   porcao,
-  preco
+  preco,
+  cardapio
 }: Props) => {
   const [isModalVisible, setModalVisible] = useState(false);
-  const [selectedImage, setSelectedImage] = useState(defaultCover); // Estado para a imagem selecionada
+  const [selectedImage, setSelectedImage] = useState(defaultCover);
+  const dispatch = useDispatch(); // Inicializa o dispatch
 
   const handleOpenModal = (foto: string) => {
-    setSelectedImage(foto); // Atualiza a imagem selecionada
-    setModalVisible(true); // Abre a modal
+    setSelectedImage(foto);
+    setModalVisible(true);
   };
 
   const handleCloseModal = () => {
-    setModalVisible(false); // Fecha a modal
+    setModalVisible(false);
+  };
+
+  const handleAddToCart = () => {
+    const cartItem: CartItem = {
+      id: cardapio.id,
+      nome: name, // Passa o nome correto
+      descricao: description, // Passa a descrição correta
+      foto: defaultCover, // Passa a imagem de capa correta
+      preco,
+      porcao
+    };
+
+    dispatch(add(cartItem)); // Adiciona o item ao carrinho via Redux
   };
 
   return (
     <>
       <Card>
-        {items.map((media, index) => (
+        {items.map((media) => (
           <ImageContainer
-            key={index} // Usa o index como key já que o item não tem URL única
-            onClick={() => handleOpenModal(media.foto)} // Abre a modal com a imagem selecionada
+            key={media.id}
+            onClick={() => handleOpenModal(media.foto)}
           >
-            <img src={media.foto} alt={`Mídia ${index + 1} da ${name}`} />
+            <img src={media.foto} alt={`Mídia da ${name}`} />
             <Action onClick={() => handleOpenModal(media.foto)}>
               <img src={zoom} alt="Clique para maximizar o produto" />
             </Action>
@@ -58,8 +77,8 @@ const RestProduct = ({
         <Descricao>{description}</Descricao>
         <Button
           type="button"
-          title="Expandir"
-          onClick={() => handleOpenModal(defaultCover)}
+          title="Adicionar ao carrinho"
+          onClick={handleAddToCart} // Atualiza o evento onClick
         >
           Adicionar ao carrinho
         </Button>
@@ -70,9 +89,10 @@ const RestProduct = ({
         onClose={handleCloseModal}
         nome={name}
         descricao={description}
-        foto={selectedImage} // Passa a imagem selecionada para a modal
+        foto={selectedImage}
         porcao={porcao}
         preco={preco}
+        cardapio={cardapio}
       />
     </>
   );

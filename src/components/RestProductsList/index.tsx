@@ -18,9 +18,10 @@ const RestProductsList = ({ background, cardapio }: Props) => (
             key={item.id} // Usa o id correto
             description={item.descricao} // Acessa a descrição diretamente
             title={item.nome} // Usa o nome do prato para o título
-            items={[{ foto: item.foto }]} // Passa o array correto de fotos
+            items={[{ id: item.id, foto: item.foto }]} // Passa o array correto de fotos
             porcao={item.porcao}
             preco={item.preco}
+            cardapio={item}
           />
         ))}
       </List>

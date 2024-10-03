@@ -45,3 +45,8 @@ export const BannerTitle = styled.h1`
   margin-top: 200px;
   margin-bottom: 4px;
 `;
+
+export const CartButton = styled.a`
+  display: flex;
+  cursor: pointer;
+`;

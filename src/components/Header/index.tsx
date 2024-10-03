@@ -1,13 +1,27 @@
-import { BannerTitle, HeaderBar, LinkItem, Links, Logo } from './styles';
+import { useLocation } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux'; // Importar useSelector
+import { RootReducer } from '../../store'; // Importar o tipo do RootReducer
+import {
+  BannerTitle,
+  CartButton,
+  HeaderBar,
+  LinkItem,
+  Links,
+  Logo
+} from './styles';
+
+import { open } from '../../store/reducers/cart'; // Ação de abrir o carrinho
 
 import logo from '../../assets/images/logo.png';
 import bannerImg from '../../assets/images/bannerImg.png';
-import { useLocation } from 'react-router-dom';
-import { useEffect, useState } from 'react';
 
 const Header = () => {
   const location = useLocation();
   const [isVisible, setIsVisible] = useState(true);
+
+  // Obtenha o número de itens no carrinho do estado global
+  const { items } = useSelector((state: RootReducer) => state.cart);
 
   useEffect(() => {
     const currentPath = location.pathname;
@@ -16,6 +30,12 @@ const Header = () => {
     setIsVisible(visible);
     console.log(`Is visible: ${visible}`); // Adicionado para depuração
   }, [location.pathname]);
+
+  const dispatch = useDispatch();
+
+  const openCart = () => {
+    dispatch(open());
+  };
 
   return (
     <HeaderBar style={{ backgroundImage: `url(${bannerImg})` }}>
@@ -26,7 +46,10 @@ const Header = () => {
             <a href="/#">Restaurantes</a>
           </LinkItem>
           <LinkItem>
-            <a href="/restaurantes">0 - produto(s)</a>
+            {/* Exibe o número de itens no carrinho */}
+            <CartButton onClick={openCart}>
+              {items.length} - produto(s)
+            </CartButton>
           </LinkItem>
         </Links>
       </nav>

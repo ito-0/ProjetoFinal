@@ -1,33 +1,39 @@
-import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { Prato } from '../Home';
 import RestProductsList from '../../components/RestProductsList';
 import RestBanner from '../../components/RestBanner';
+
+import { useGetPratoQuery } from '../../services/api';
 
 const Restaurantes = () => {
   const { id } = useParams();
 
-  const [banner, setBanner] = useState<Prato | null>(null); // Inicializa como null para evitar erro
-  const [cardapio, setCardapio] = useState<Prato['cardapio'][]>([]); // Corrige para ser um array de objetos do cardapio
+  // Faz a requisição usando RTK Query
+  const { data: restaurante, isLoading, error } = useGetPratoQuery(id || '');
 
-  useEffect(() => {
-    fetch(`https://fake-api-tau.vercel.app/api/efood/restaurantes/${id}`)
-      .then((res) => res.json())
-      .then((res) => {
-        setBanner(res);
-        setCardapio(res.cardapio); // Corrige para acessar corretamente a propriedade cardapio, que deve ser um array
-      })
-      .catch((error) => console.error('Erro ao buscar dados:', error));
-  }, [id]);
+  if (!id) {
+    return <h3>Restaurante não encontrado</h3>;
+  }
 
-  if (!banner) {
+  if (isLoading) {
     return <h3>Carregando...</h3>;
+  }
+
+  if (error) {
+    return <h3>Erro ao carregar os dados do restaurante</h3>;
+  }
+
+  // Verifique se o restaurante e o cardápio são válidos
+  if (!restaurante || !Array.isArray(restaurante.cardapio)) {
+    return <h3>Restaurante ou cardápio não encontrado</h3>;
   }
 
   return (
     <>
-      <RestBanner banner={banner} />
-      <RestProductsList cardapio={cardapio} background="rosaClaro" />
+      <RestBanner banner={restaurante} />
+      <RestProductsList
+        cardapio={restaurante.cardapio}
+        background="rosaClaro"
+      />
     </>
   );
 };
