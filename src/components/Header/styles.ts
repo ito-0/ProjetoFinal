@@ -1,13 +1,40 @@
 import styled from 'styled-components';
 import { cores } from '../../styles';
 
-export const HeaderBar = styled.header`
-  padding: 24px;
+export const HeaderBar = styled.header<{ backgroundImage: string }>`
+  width: 100%;
   display: flex;
-  align-items: center;
+  justify-content: center;
+  background-image: url(${(props) => props.backgroundImage});
+  background-size: cover;
+  background-position: center;
+
+  nav {
+    max-width: 1024px;
+    width: 100%;
+  }
+
+  div {
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+  }
+`;
+
+export const Logo = styled.img`
+  height: 58px;
+  position: absolute;
+  top: 64px;
+`;
+
+export const Links = styled.ul`
+  display: flex;
+  text-decoration: none;
   justify-content: space-between;
-  flex-direction: column;
-  position: relative;
+`;
+
+export const LinkItem = styled.li`
+  padding: 88px 0;
 
   a {
     color: ${cores.rosaEscuro};
@@ -17,33 +44,11 @@ export const HeaderBar = styled.header`
   }
 `;
 
-export const Logo = styled.img`
-  height: 48px;
-  position: absolute;
-  margin-top: 24px;
-`;
-
-export const Links = styled.ul`
-  display: none;
-
-  &.visivel {
-    display: flex;
-  }
-`;
-
-export const LinkItem = styled.li`
-  padding: 32px 0;
-  margin-right: 392px;
-  margin-left: 392px;
-  white-space: nowrap;
-`;
-
 export const BannerTitle = styled.h1`
   font-size: 36px;
   max-width: 540px;
+  margin: 260px auto 40px;
   text-align: center;
-  margin-top: 200px;
-  margin-bottom: 4px;
 `;
 
 export const CartButton = styled.a`

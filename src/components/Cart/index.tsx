@@ -26,8 +26,8 @@ const Cart = () => {
   };
 
   // Função para remover o item do carrinho
-  const handleRemoveItem = (id: number) => {
-    dispatch(remove(id)); // Dispara a ação de remoção com o id do item
+  const handleRemoveItem = (index: number) => {
+    dispatch(remove(index)); // Dispara a ação de remoção com o índice do item
   };
 
   return (
@@ -35,22 +35,20 @@ const Cart = () => {
       <Overlay onClick={closeCart} />
       <Sidebar>
         <ul>
-          {items.map((item) => (
-            <CartItem key={item.id}>
+          {items.map((item, index) => (
+            <CartItem key={index}>
               <img src={item.foto} alt={item.nome} />
               <div>
                 <h3>{item.nome}</h3>
-                {/* Formata o preço individual usando a função formataPreco */}
                 <span>{formataPreco(item.preco)}</span>
               </div>
-              {/* Botão para remover o item */}
-              <button onClick={() => handleRemoveItem(item.id)} />
+              {/* Botão para remover o item pelo índice */}
+              <button onClick={() => handleRemoveItem(index)} />
             </CartItem>
           ))}
         </ul>
         <Prices>
           <p>Valor total</p>
-          {/* Exibe o valor total formatado */}
           <p>{formataPreco(calcularValorTotal())}</p>
         </Prices>
         <Button title="Clique aqui para continuar com a entrega" type="button">

@@ -1,11 +1,9 @@
 import { useState } from 'react';
-import { useDispatch } from 'react-redux'; // Importar useDispatch
 import Button from '../Button';
 import CustomModal from '../Modal';
 import { Action, Card, Descricao, ImageContainer, Titulo } from './styles';
 import zoom from '../../assets/images/zoom.png';
-import { CartItem, Prato } from '../../pages/Home';
-import { add } from '../../store/reducers/cart'; // Importar a ação add
+import { Prato } from '../../pages/Home';
 
 interface GalleryItem {
   id: number;
@@ -35,7 +33,6 @@ const RestProduct = ({
 }: Props) => {
   const [isModalVisible, setModalVisible] = useState(false);
   const [selectedImage, setSelectedImage] = useState(defaultCover);
-  const dispatch = useDispatch(); // Inicializa o dispatch
 
   const handleOpenModal = (foto: string) => {
     setSelectedImage(foto);
@@ -46,17 +43,9 @@ const RestProduct = ({
     setModalVisible(false);
   };
 
-  const handleAddToCart = () => {
-    const cartItem: CartItem = {
-      id: cardapio.id,
-      nome: name, // Passa o nome correto
-      descricao: description, // Passa a descrição correta
-      foto: defaultCover, // Passa a imagem de capa correta
-      preco,
-      porcao
-    };
-
-    dispatch(add(cartItem)); // Adiciona o item ao carrinho via Redux
+  // Removendo a lógica de adicionar ao carrinho para focar na abertura da modal
+  const handleButtonOpenModal = () => {
+    setModalVisible(true);
   };
 
   return (
@@ -77,8 +66,8 @@ const RestProduct = ({
         <Descricao>{description}</Descricao>
         <Button
           type="button"
-          title="Adicionar ao carrinho"
-          onClick={handleAddToCart} // Atualiza o evento onClick
+          title="Visualizar Produto"
+          onClick={handleButtonOpenModal} // Atualiza para abrir a modal
         >
           Adicionar ao carrinho
         </Button>

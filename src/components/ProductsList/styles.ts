@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 import { Props } from '.';
-import { cores } from '../../styles';
+import { breakpoints, cores } from '../../styles';
 import { Card } from '../Product/styles';
 
 export const Container = styled.section<Omit<Props, 'title' | 'restaurantes'>>`
@@ -12,6 +12,11 @@ export const Container = styled.section<Omit<Props, 'title' | 'restaurantes'>>`
     background-color: ${(props) =>
       props.background === 'branca' ? cores.branca : cores.rosaEscuro});
   }
+
+  @media (max-width: ${breakpoints.tablet}) {
+      padding: 32px 16px;
+  }
+
 `;
 
 export const List = styled.div`
@@ -20,6 +25,10 @@ export const List = styled.div`
   row-gap: 40px;
   column-gap: 80px;
   margin-top: 40px;
+
+  @media (max-width: ${breakpoints.tablet}) {
+    grid-template-columns: 1fr;
+  }
 `;
 
 export const Title = styled.h2`

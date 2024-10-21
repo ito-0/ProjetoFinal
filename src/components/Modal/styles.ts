@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import { cores } from '../../styles';
-import { ButtonLink } from '../Button/styles';
 
 export const ModalCustom = styled.div`
   position: fixed;
@@ -55,6 +54,7 @@ export const ModalInfo = styled.div`
     margin-top: 0;
     background-color: ${cores.rosaMedio};
     color: ${cores.rosaEscuro};
+    cursor: pointer;
   }
 `;
 

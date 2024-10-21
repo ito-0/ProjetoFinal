@@ -19,10 +19,7 @@ const cartSlice = createSlice({
       state.items.push(action.payload);
     },
     remove: (state, action: PayloadAction<number>) => {
-      const index = state.items.findIndex((item) => item.id === action.payload);
-      if (index !== -1) {
-        state.items.splice(index, 1); // Remove apenas a primeira ocorrência do item
-      }
+      state.items.splice(action.payload, 1); // Remove o item baseado no índice
     },
     open: (state) => {
       state.isOpen = true;

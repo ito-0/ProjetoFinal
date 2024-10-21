@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 import { Props } from '.';
-import { cores } from '../../styles';
+import { breakpoints, cores } from '../../styles';
 import { Card } from '../Product/styles';
 
 export const Container = styled.section<Omit<Props, 'title' | 'cardapio'>>`
@@ -20,4 +20,8 @@ export const List = styled.div`
   row-gap: 40px;
   column-gap: 40px;
   margin: 40px 0;
+
+  @media (max-width: ${breakpoints.tablet}) {
+    display: block;
+  }
 `;
