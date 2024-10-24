@@ -51,9 +51,9 @@ const RestProduct = ({
 
   return (
     <>
-      <S.Card>
+      <S.RestCard>
         {items.map((media) => (
-          <S.ImageContainer
+          <S.RestImageContainer
             key={media.id}
             onClick={() => handleOpenModal(media.foto)}
           >
@@ -61,10 +61,10 @@ const RestProduct = ({
             <S.Action onClick={() => handleOpenModal(media.foto)}>
               <img src={zoom} alt="Clique para maximizar o produto" />
             </S.Action>
-          </S.ImageContainer>
+          </S.RestImageContainer>
         ))}
-        <S.Titulo>{title}</S.Titulo>
-        <S.Descricao>{description}</S.Descricao>
+        <S.RestTitle>{title}</S.RestTitle>
+        <S.RestDescription>{description}</S.RestDescription>
         <Button
           type="button"
           title="Visualizar Produto"
@@ -72,7 +72,7 @@ const RestProduct = ({
         >
           Adicionar ao carrinho
         </Button>
-      </S.Card>
+      </S.RestCard>
 
       <CustomModal
         isVisible={isModalVisible}

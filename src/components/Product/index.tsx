@@ -23,22 +23,22 @@ const Product = ({
   image,
   nota
 }: Props) => (
-  <S.Card>
-    <S.CapaImg src={image} alt={titulo} srcSet="" />
+  <S.ProdCard>
+    <S.ProdImg src={image} alt={titulo} srcSet="" />
     <S.Infos>
       {destacado.map((destacado) => (
         <Tag key={destacado}>Destaque da semana</Tag>
       ))}
       <Tag>{tipo}</Tag>
     </S.Infos>
-    <S.TituloNotaContainer>
-      <S.Titulo>{titulo}</S.Titulo>
-      <S.Nota>
+    <S.ProdContent>
+      <S.ProdTitle>{titulo}</S.ProdTitle>
+      <S.ProdGrade>
         {nota}
         <img src={star} alt="estrela" srcSet="" />
-      </S.Nota>
-    </S.TituloNotaContainer>
-    <S.Descricao>{descricao}</S.Descricao>
+      </S.ProdGrade>
+    </S.ProdContent>
+    <S.ProdDescription>{descricao}</S.ProdDescription>
     <Button
       type="link"
       to={`/restaurantes/${id}`}
@@ -46,7 +46,7 @@ const Product = ({
     >
       Saiba mais
     </Button>
-  </S.Card>
+  </S.ProdCard>
 );
 
 export default Product;

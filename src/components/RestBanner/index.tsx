@@ -5,12 +5,12 @@ type Props = {
 };
 
 const RestBanner = ({ banner }: Props) => (
-  <S.Imagem style={{ backgroundImage: `url(${banner.capa})` }}>
+  <S.RestBannerImg style={{ backgroundImage: `url(${banner.capa})` }}>
     <div className="container">
       <S.Category>{banner.tipo}</S.Category>
       <h1>{banner.titulo}</h1>
     </div>
-  </S.Imagem>
+  </S.RestBannerImg>
 );
 
 export default RestBanner;

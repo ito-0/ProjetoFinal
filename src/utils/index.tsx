@@ -1,4 +1,4 @@
-export const formataPreco = (preco: number) => {
+export const parseToBrl = (preco: number) => {
   return new Intl.NumberFormat('pt-BR', {
     style: 'currency',
     currency: 'BRL'

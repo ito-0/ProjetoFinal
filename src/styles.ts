@@ -1,11 +1,11 @@
 import { createGlobalStyle } from 'styled-components';
 
-export const cores = {
-  branca: '#FFFFFF',
-  preta: '#333',
-  rosaEscuro: '#E66767',
-  rosaMedio: '#FFEBD9',
-  rosaClaro: '#FFF8F2'
+export const colors = {
+  white: '#FFFFFF',
+  black: '#333',
+  darkPink: '#E66767',
+  softPink: '#FFEBD9',
+  lightPink: '#FFF8F2'
 };
 
 export const breakpoints = {
@@ -24,7 +24,7 @@ export const GlobalCSS = createGlobalStyle`
   }
 
   body {
-    color: ${cores.rosaEscuro};
+    color: ${colors.darkPink};
   }
 
   .container {

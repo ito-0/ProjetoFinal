@@ -1,8 +1,8 @@
 import styled from 'styled-components';
-import { cores } from '../../styles';
+import { colors } from '../../styles';
 
 export const FooterContainer = styled.footer`
-  background-color: ${cores.rosaMedio};
+  background-color: ${colors.softPink};
   padding: 20px 0;
   display: flex;
   flex-direction: column;
@@ -25,7 +25,7 @@ export const Logo = styled.img`
 
 export const FooterText = styled.p`
   font-size: 10px;
-  color: ${cores.rosaEscuro};
+  color: ${colors.darkPink};
   max-width: 480px;
   text-align: center;
 `;

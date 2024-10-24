@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { cores } from '../../styles';
+import { colors } from '../../styles';
 
 export const ModalCustom = styled.div`
   position: fixed;
@@ -34,7 +34,7 @@ export const ModalBody = styled.div`
 `;
 
 export const ModalInfo = styled.div`
-  color: ${cores.branca};
+  color: ${colors.white};
   display: flex;
   flex-direction: column;
 
@@ -52,8 +52,8 @@ export const ModalInfo = styled.div`
   Button {
     align-self: flex-start;
     margin-top: 0;
-    background-color: ${cores.rosaMedio};
-    color: ${cores.rosaEscuro};
+    background-color: ${colors.softPink};
+    color: ${colors.darkPink};
     cursor: pointer;
   }
 `;
@@ -61,7 +61,7 @@ export const ModalInfo = styled.div`
 export const ModalContent = styled.div`
   max-width: 1024px;
   position: relative;
-  background-color: ${cores.rosaEscuro};
+  background-color: ${colors.darkPink};
   padding: 32px;
   z-index: 20;
   display: flex;

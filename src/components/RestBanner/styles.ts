@@ -1,7 +1,7 @@
 import styled from 'styled-components';
-import { cores } from '../../styles';
+import { colors } from '../../styles';
 
-export const Imagem = styled.div`
+export const RestBannerImg = styled.div`
   width: 100%;
   height: 280px;
   display: block;
@@ -23,7 +23,7 @@ export const Imagem = styled.div`
 
   .container {
     position: relative;
-    color: ${cores.branca};
+    color: ${colors.white};
     display: flex;
     flex-direction: column;
     justify-content: space-between;

@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { breakpoints, cores } from '../../styles';
+import { breakpoints, colors } from '../../styles';
 
 type RowProps = {
   maxWidth?: string;
@@ -45,7 +45,7 @@ export const InputGroup = styled.div<RowProps>`
 
   .error-message {
     position: absolute;
-    color: ${cores.preta};
+    color: ${colors.black};
   }
 
   @media (max-width: ${breakpoints.tablet}) {

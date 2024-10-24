@@ -1,15 +1,16 @@
+import * as S from './styles';
+
 import RestProduct from '../RestProduct';
-import { Container, List } from './styles';
 
 export type Props = {
-  background: 'rosaClaro' | 'branca' | 'rosaEscuro';
+  background: 'lightPink' | 'white' | 'darkPink';
   cardapio: Prato['cardapio'][]; // Corrija para aceitar o array correto
 };
 
 const RestProductsList = ({ background, cardapio }: Props) => (
-  <Container background={background}>
+  <S.Container background={background}>
     <div className="container">
-      <List>
+      <S.RestList>
         {cardapio.map((item) => (
           <RestProduct
             defaultCover={item.foto} // Acessa a propriedade correta
@@ -23,9 +24,9 @@ const RestProductsList = ({ background, cardapio }: Props) => (
             cardapio={item}
           />
         ))}
-      </List>
+      </S.RestList>
     </div>
-  </Container>
+  </S.Container>
 );
 
 export default RestProductsList;

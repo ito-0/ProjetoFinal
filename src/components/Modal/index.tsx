@@ -32,7 +32,7 @@ const Modal = ({
 
   if (!isVisible) return null;
 
-  const formataPreco = (preco: number) => {
+  const parseToBrl = (preco: number) => {
     return new Intl.NumberFormat('pt-BR', {
       style: 'currency',
       currency: 'BRL'
@@ -69,7 +69,7 @@ const Modal = ({
               onClick={adicionarAoCarrinho} // Corrigir aqui para adicionar corretamente
               title="Clique aqui para aproveitar este prato"
             >
-              {`Adicionar ao carrinho - ${formataPreco(preco)}`}
+              {`Adicionar ao carrinho - ${parseToBrl(preco)}`}
             </Button>
           </S.ModalInfo>
         </S.ModalBody>

@@ -1,11 +1,11 @@
 import styled from 'styled-components';
-import { breakpoints, cores } from '../../styles';
+import { colors } from '../../styles';
 import { TagContainer } from '../Tag/styles';
 import { ButtonLink } from '../Button/styles';
 
-export const Card = styled.div`
-  background-color: ${cores.branca};
-  border: 1px solid ${cores.rosaEscuro};
+export const ProdCard = styled.div`
+  background-color: ${colors.white};
+  border: 1px solid ${colors.darkPink};
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -20,23 +20,23 @@ export const Card = styled.div`
     margin: 8px;
     align-self: flex-start;
     display: inline-block;
-    color: ${cores.rosaClaro};
-    background-color: ${cores.rosaEscuro};
+    color: ${colors.lightPink};
+    background-color: ${colors.darkPink};
   }
 `;
 
-export const CapaImg = styled.img`
+export const ProdImg = styled.img`
   height: 216px;
   width: 100%;
   object-fit: cover;
 `;
 
-export const Titulo = styled.h3`
+export const ProdTitle = styled.h3`
   font-weight: bold;
   font-size: 18px;
 `;
 
-export const Nota = styled.h3`
+export const ProdGrade = styled.h3`
   font-weight: bold;
   font-size: 18px;
   display: flex;
@@ -50,7 +50,13 @@ export const Nota = styled.h3`
   }
 `;
 
-export const Descricao = styled.p`
+export const ProdContent = styled.div`
+  display: flex;
+  justify-content: space-between;
+  padding: 8px;
+`;
+
+export const ProdDescription = styled.p`
   font-size: 14px;
   line-height: 22px;
   display: block;
@@ -61,10 +67,4 @@ export const Infos = styled.div`
   position: absolute;
   top: 16px;
   right: 16px;
-`;
-
-export const TituloNotaContainer = styled.div`
-  display: flex;
-  justify-content: space-between;
-  padding: 8px;
 `;

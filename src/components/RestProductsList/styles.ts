@@ -1,16 +1,16 @@
 import styled from 'styled-components';
 
 import { Props } from '.';
-import { breakpoints, cores } from '../../styles';
-import { Card } from '../Product/styles';
+import { breakpoints, colors } from '../../styles';
+import { ProdCard } from '../Product/styles';
 
 export const Container = styled.section<Omit<Props, 'title' | 'cardapio'>>`
   padding: 32px 0;
-  background-color: ${cores.rosaClaro};
+  background-color: ${colors.lightPink};
 
-  ${Card} {
+  ${ProdCard} {
     background-color: ${(props) =>
-      props.background === 'branca' ? cores.branca : cores.rosaEscuro});
+      props.background === 'white' ? colors.white : colors.darkPink});
   }
 
   @media (max-width: ${breakpoints.tablet}) {
@@ -18,7 +18,7 @@ export const Container = styled.section<Omit<Props, 'title' | 'cardapio'>>`
   }
 `;
 
-export const List = styled.div`
+export const RestList = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   row-gap: 40px;

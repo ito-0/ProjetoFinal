@@ -20,7 +20,7 @@ const Home = () => {
 
   return (
     <>
-      <ProductsList restaurantes={destaques} background="rosaClaro" title="" />
+      <ProductsList restaurantes={destaques} background="lightPink" />
     </>
   );
 };

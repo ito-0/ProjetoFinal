@@ -32,7 +32,7 @@ const Restaurantes = () => {
       <RestBanner banner={restaurante} />
       <RestProductsList
         cardapio={restaurante.cardapio}
-        background="rosaClaro"
+        background="lightPink"
       />
     </>
   );

@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { breakpoints, cores } from '../../styles';
+import { breakpoints, colors } from '../../styles';
 
 export const HeaderBar = styled.header<{ backgroundImage: string }>`
   display: flex;
@@ -44,7 +44,7 @@ export const LinkItem = styled.li`
   padding: 88px 0;
 
   a {
-    color: ${cores.rosaEscuro};
+    color: ${colors.darkPink};
     text-decoration: none;
     font-weight: bold;
     font-size: 20px;

@@ -1,11 +1,11 @@
 import styled from 'styled-components';
-import { cores } from '../../styles';
+import { colors } from '../../styles';
 
-export const Card = styled.div`
-  background-color: ${cores.rosaEscuro};
+export const RestCard = styled.div`
+  background-color: ${colors.darkPink};
   position: relative;
-  border: 1px solid ${cores.rosaEscuro};
-  color: ${cores.rosaClaro};
+  border: 1px solid ${colors.darkPink};
+  color: ${colors.lightPink};
   padding: 8px;
   display: flex;
   flex-direction: column;
@@ -13,19 +13,19 @@ export const Card = styled.div`
   height: 100%;
 
   button {
-    background-color: ${cores.rosaMedio};
-    color: ${cores.rosaEscuro};
+    background-color: ${colors.softPink};
+    color: ${colors.darkPink};
     cursor: pointer;
   }
 `;
 
-export const Titulo = styled.h3`
+export const RestTitle = styled.h3`
   font-weight: bold;
   font-size: 18px;
   margin: 8px 0;
 `;
 
-export const Descricao = styled.p`
+export const RestDescription = styled.p`
   font-size: 14px;
   line-height: 22px;
   display: block;
@@ -45,7 +45,7 @@ export const Action = styled.div`
   opacity: 0;
 `;
 
-export const ImageContainer = styled.div`
+export const RestImageContainer = styled.div`
   position: relative;
   cursor: pointer;
 

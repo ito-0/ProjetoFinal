@@ -1,13 +1,12 @@
-import { Container, List } from './styles';
+import * as S from './styles';
 import Product from '../Product';
 
 export type Props = {
-  title: string;
-  background: 'rosaClaro' | 'branca' | 'rosaEscuro';
+  background: 'lightPink' | 'white' | 'darkPink';
   restaurantes: Prato[];
 };
 
-const ProductsList = ({ background, title, restaurantes }: Props) => {
+const ProductsList = ({ background, restaurantes }: Props) => {
   const getPratoTag = (prato: Prato) => {
     const tags = [];
 
@@ -19,10 +18,9 @@ const ProductsList = ({ background, title, restaurantes }: Props) => {
   };
 
   return (
-    <Container background={background}>
-      <div className="container">
-        <h2>{title}</h2>
-        <List>
+    <S.Container background={background}>
+      <div className="s.container">
+        <S.ProdList>
           {restaurantes.map((prato) => (
             <Product
               id={prato.id}
@@ -35,9 +33,9 @@ const ProductsList = ({ background, title, restaurantes }: Props) => {
               nota={prato.avaliacao}
             />
           ))}
-        </List>
+        </S.ProdList>
       </div>
-    </Container>
+    </S.Container>
   );
 };
 

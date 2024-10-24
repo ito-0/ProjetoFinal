@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { cores } from '../../styles';
+import { colors } from '../../styles';
 import { ButtonContainer } from '../Button/styles';
 
 import lixo from '../../assets/images/lixeira-de-reciclagem 1.png';
@@ -22,7 +22,7 @@ export const CartContainer = styled.div`
   height: 100%;
   display: none;
   justify-content: flex-end;
-  color: ${cores.rosaMedio};
+  color: ${colors.softPink};
 
   &.is-open {
     display: flex;
@@ -30,7 +30,7 @@ export const CartContainer = styled.div`
 `;
 
 export const Sidebar = styled.aside`
-  background-color: ${cores.rosaEscuro};
+  background-color: ${colors.darkPink};
   padding: 32px 8px 0;
   max-width: 360px;
   width: 100%;
@@ -38,8 +38,8 @@ export const Sidebar = styled.aside`
 
   ${ButtonContainer} {
     width: 100%;
-    background-color: ${cores.rosaMedio};
-    color: ${cores.rosaEscuro};
+    background-color: ${colors.softPink};
+    color: ${colors.darkPink};
     padding: 4px 0;
     cursor: pointer;
   }
@@ -50,8 +50,8 @@ export const CheckoutContent = styled.div`
   flex-direction: column;
   gap: 16px;
   padding: 16px;
-  background-color: ${cores.rosaMedio};
-  color: ${cores.rosaEscuro};
+  background-color: ${colors.softPink};
+  color: ${colors.darkPink};
 `;
 
 export const Prices = styled.div`
@@ -62,8 +62,8 @@ export const Prices = styled.div`
 
 export const CartItem = styled.li`
   display: flex;
-  background-color: ${cores.rosaMedio};
-  color: ${cores.rosaEscuro};
+  background-color: ${colors.softPink};
+  color: ${colors.darkPink};
   margin-bottom: 16px;
   position: relative;
 
