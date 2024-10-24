@@ -1,7 +1,5 @@
-import { Prato } from '../../pages/Home';
-import Product from '../Product';
-
 import { Container, List } from './styles';
+import Product from '../Product';
 
 export type Props = {
   title: string;

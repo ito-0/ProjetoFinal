@@ -1,17 +1,33 @@
 import { ButtonContainer, ButtonLink } from './styles';
 
-type Props = {
-  type: 'button' | 'link';
+export type Props = {
+  type: 'button' | 'link' | 'submit';
   title: string;
   to?: string;
   onClick?: () => void;
   children: string;
+  variant?: 'primary' | 'secondary'; // Adiciona o variant para diferentes estilos de botão
+  disabled?: boolean; // Adiciona a opção de desabilitar o botão
 };
 
-const Button = ({ type, title, to, onClick, children }: Props) => {
-  if (type === 'button') {
+const Button = ({
+  type,
+  title,
+  to,
+  onClick,
+  children,
+  variant = 'primary',
+  disabled
+}: Props) => {
+  if (type === 'button' || type === 'submit') {
     return (
-      <ButtonContainer type="button" title={title} onClick={onClick}>
+      <ButtonContainer
+        type={type}
+        title={title}
+        onClick={onClick}
+        variant={variant} // Usa a variante (primary ou secondary)
+        disabled={disabled} // Define o botão como desabilitado se necessário
+      >
         {children}
       </ButtonContainer>
     );

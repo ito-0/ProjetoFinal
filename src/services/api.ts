@@ -1,20 +1,66 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import { Prato } from '../pages/Home';
 
+type Product = {
+  id: number;
+  price: number;
+};
+
+type PurchaseResponse = {
+  orderId: string;
+};
+
+type PurchasePayload = {
+  products: Product[];
+  delivery: {
+    receiver: string;
+    address: {
+      description: string;
+      city: string;
+      zipCode: string;
+      number: string;
+      complement: string;
+    };
+  };
+  payment: {
+    card: {
+      name?: string;
+      number?: string;
+      code?: number;
+      expires?: {
+        month: number;
+        year: number;
+      };
+    };
+  };
+};
+
+// Criação da API usando Redux Toolkit Query
 const api = createApi({
   baseQuery: fetchBaseQuery({
-    baseUrl: 'https://fake-api-tau.vercel.app/api/efood/restaurantes'
+    baseUrl: 'https://fake-api-tau.vercel.app/api/efood'
   }),
   endpoints: (builder) => ({
     getFeaturedPrato: builder.query<Prato[], void>({
-      query: () => ''
+      query: () => '/restaurantes'
     }),
     getPrato: builder.query<Prato, string>({
-      query: (id) => `/${id}`
+      query: (id) => `/restaurantes/${id}`
+    }),
+    purchase: builder.mutation<PurchaseResponse, PurchasePayload>({
+      query: (body) => ({
+        url: 'checkout',
+        method: 'POST',
+        body
+      })
     })
   })
 });
 
-export const { useGetFeaturedPratoQuery, useGetPratoQuery } = api;
+// Exporta os hooks gerados pela API
+export const {
+  useGetFeaturedPratoQuery,
+  useGetPratoQuery,
+  usePurchaseMutation
+} = api;
 
 export default api;

@@ -5,7 +5,7 @@ import { ButtonContainer } from '../Button/styles';
 import lixo from '../../assets/images/lixeira-de-reciclagem 1.png';
 
 export const Overlay = styled.div`
-  position: absolute
+  position: absolute;
   top: 0;
   left: 0;
   width: 100%;
@@ -34,14 +34,24 @@ export const Sidebar = styled.aside`
   padding: 32px 8px 0;
   max-width: 360px;
   width: 100%;
+  z-index: 20;
 
   ${ButtonContainer} {
-    max-width: 100%;
     width: 100%;
     background-color: ${cores.rosaMedio};
     color: ${cores.rosaEscuro};
     padding: 4px 0;
+    cursor: pointer;
   }
+`;
+
+export const CheckoutContent = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 16px;
+  background-color: ${cores.rosaMedio};
+  color: ${cores.rosaEscuro};
 `;
 
 export const Prices = styled.div`

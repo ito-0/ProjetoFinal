@@ -1,8 +1,7 @@
 import styled from 'styled-components';
-import { cores } from '../../styles';
+import { breakpoints, cores } from '../../styles';
 
 export const HeaderBar = styled.header<{ backgroundImage: string }>`
-  width: 100%;
   display: flex;
   justify-content: center;
   background-image: url(${(props) => props.backgroundImage});
@@ -19,12 +18,20 @@ export const HeaderBar = styled.header<{ backgroundImage: string }>`
     width: 100%;
     justify-content: center;
   }
+
+  @media (max-width: ${breakpoints.tablet}) {
+    padding: 0 16px;
+  }
 `;
 
 export const Logo = styled.img`
   height: 58px;
   position: absolute;
   top: 64px;
+
+  @media (max-width: ${breakpoints.cel}) {
+    top: 16px;
+  }
 `;
 
 export const Links = styled.ul`
@@ -41,6 +48,15 @@ export const LinkItem = styled.li`
     text-decoration: none;
     font-weight: bold;
     font-size: 20px;
+  }
+
+  @media (max-width: ${breakpoints.cel}) {
+    padding: 24px 0;
+    margin-top: 64px;
+
+    a {
+      font-size: 16px;
+    }
   }
 `;
 

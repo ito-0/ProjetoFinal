@@ -1,9 +1,10 @@
 import { useState } from 'react';
+
 import Button from '../Button';
 import CustomModal from '../Modal';
-import { Action, Card, Descricao, ImageContainer, Titulo } from './styles';
+import * as S from './styles';
+
 import zoom from '../../assets/images/zoom.png';
-import { Prato } from '../../pages/Home';
 
 interface GalleryItem {
   id: number;
@@ -50,20 +51,20 @@ const RestProduct = ({
 
   return (
     <>
-      <Card>
+      <S.Card>
         {items.map((media) => (
-          <ImageContainer
+          <S.ImageContainer
             key={media.id}
             onClick={() => handleOpenModal(media.foto)}
           >
             <img src={media.foto} alt={`Mídia da ${name}`} />
-            <Action onClick={() => handleOpenModal(media.foto)}>
+            <S.Action onClick={() => handleOpenModal(media.foto)}>
               <img src={zoom} alt="Clique para maximizar o produto" />
-            </Action>
-          </ImageContainer>
+            </S.Action>
+          </S.ImageContainer>
         ))}
-        <Titulo>{title}</Titulo>
-        <Descricao>{description}</Descricao>
+        <S.Titulo>{title}</S.Titulo>
+        <S.Descricao>{description}</S.Descricao>
         <Button
           type="button"
           title="Visualizar Produto"
@@ -71,7 +72,7 @@ const RestProduct = ({
         >
           Adicionar ao carrinho
         </Button>
-      </Card>
+      </S.Card>
 
       <CustomModal
         isVisible={isModalVisible}

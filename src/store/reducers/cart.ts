@@ -1,5 +1,4 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { CartItem } from '../../pages/Home/index'; // Importe a nova interface
 
 type CartState = {
   items: CartItem[];
@@ -19,16 +18,19 @@ const cartSlice = createSlice({
       state.items.push(action.payload);
     },
     remove: (state, action: PayloadAction<number>) => {
-      state.items.splice(action.payload, 1); // Remove o item baseado no índice
+      state.items.splice(action.payload, 1);
     },
     open: (state) => {
       state.isOpen = true;
     },
     close: (state) => {
       state.isOpen = false;
+    },
+    clear: (state) => {
+      state.items = [];
     }
   }
 });
 
-export const { add, remove, open, close } = cartSlice.actions;
+export const { add, remove, open, close, clear } = cartSlice.actions;
 export default cartSlice.reducer;

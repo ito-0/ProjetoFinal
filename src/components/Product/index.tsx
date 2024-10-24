@@ -1,14 +1,6 @@
 import Button from '../Button';
 import Tag from '../Tag';
-import {
-  Card,
-  Descricao,
-  Titulo,
-  Infos,
-  Nota,
-  TituloNotaContainer,
-  CapaImg
-} from './styles';
+import * as S from './styles';
 
 import star from '../../assets/images/estrela.png';
 
@@ -31,22 +23,22 @@ const Product = ({
   image,
   nota
 }: Props) => (
-  <Card>
-    <CapaImg src={image} alt={titulo} srcSet="" />
-    <Infos>
+  <S.Card>
+    <S.CapaImg src={image} alt={titulo} srcSet="" />
+    <S.Infos>
       {destacado.map((destacado) => (
         <Tag key={destacado}>Destaque da semana</Tag>
       ))}
       <Tag>{tipo}</Tag>
-    </Infos>
-    <TituloNotaContainer>
-      <Titulo>{titulo}</Titulo>
-      <Nota>
+    </S.Infos>
+    <S.TituloNotaContainer>
+      <S.Titulo>{titulo}</S.Titulo>
+      <S.Nota>
         {nota}
         <img src={star} alt="estrela" srcSet="" />
-      </Nota>
-    </TituloNotaContainer>
-    <Descricao>{descricao}</Descricao>
+      </S.Nota>
+    </S.TituloNotaContainer>
+    <S.Descricao>{descricao}</S.Descricao>
     <Button
       type="link"
       to={`/restaurantes/${id}`}
@@ -54,7 +46,7 @@ const Product = ({
     >
       Saiba mais
     </Button>
-  </Card>
+  </S.Card>
 );
 
 export default Product;

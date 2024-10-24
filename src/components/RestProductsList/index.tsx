@@ -1,4 +1,3 @@
-import { Prato } from '../../pages/Home';
 import RestProduct from '../RestProduct';
 import { Container, List } from './styles';
 

@@ -14,9 +14,8 @@ export const Container = styled.section<Omit<Props, 'title' | 'restaurantes'>>`
   }
 
   @media (max-width: ${breakpoints.tablet}) {
-      padding: 32px 16px;
+    padding: 16px;
   }
-
 `;
 
 export const List = styled.div`

@@ -1,14 +1,10 @@
-import {
-  ModalCustom,
-  ModalBody,
-  ModalContent,
-  ModalHeader,
-  ModalInfo
-} from './styles';
+import { useDispatch } from 'react-redux';
+
+import * as S from './styles';
+
 import fechar from '../../assets/images/fechar.png';
 import Button from '../Button/index';
-import { CartItem, Prato } from '../../pages/Home';
-import { useDispatch } from 'react-redux';
+
 import { add } from '../../store/reducers/cart';
 
 type ModalProps = {
@@ -57,14 +53,14 @@ const Modal = ({
   };
 
   return (
-    <ModalCustom>
-      <ModalContent className="container">
-        <ModalHeader>
+    <S.ModalCustom>
+      <S.ModalContent className="container">
+        <S.ModalHeader>
           <img src={fechar} alt="Clique para fechar" onClick={onClose} />
-        </ModalHeader>
-        <ModalBody>
+        </S.ModalHeader>
+        <S.ModalBody>
           <img src={foto} alt={nome} />
-          <ModalInfo>
+          <S.ModalInfo>
             <h4>{nome}</h4>
             <p>{descricao}</p>
             <p>Serve: {porcao}</p>
@@ -75,11 +71,11 @@ const Modal = ({
             >
               {`Adicionar ao carrinho - ${formataPreco(preco)}`}
             </Button>
-          </ModalInfo>
-        </ModalBody>
-      </ModalContent>
+          </S.ModalInfo>
+        </S.ModalBody>
+      </S.ModalContent>
       <div className="overlay" onClick={onClose}></div>
-    </ModalCustom>
+    </S.ModalCustom>
   );
 };
 

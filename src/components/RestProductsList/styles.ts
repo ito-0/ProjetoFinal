@@ -12,6 +12,10 @@ export const Container = styled.section<Omit<Props, 'title' | 'cardapio'>>`
     background-color: ${(props) =>
       props.background === 'branca' ? cores.branca : cores.rosaEscuro});
   }
+
+  @media (max-width: ${breakpoints.tablet}) {
+    padding: 16px;
+  }
 `;
 
 export const List = styled.div`

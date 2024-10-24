@@ -1,16 +1,12 @@
 import { useLocation } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+
+import * as S from './styles';
+
 import { RootReducer } from '../../store';
-import {
-  BannerTitle,
-  CartButton,
-  HeaderBar,
-  LinkItem,
-  Links,
-  Logo
-} from './styles';
 import { open } from '../../store/reducers/cart';
+
 import logo from '../../assets/images/logo.png';
 import bannerImg from '../../assets/images/bannerImg.png';
 
@@ -27,29 +23,29 @@ const Header = () => {
   const openCart = () => dispatch(open());
 
   return (
-    <HeaderBar backgroundImage={bannerImg}>
-      <Logo src={logo} alt="efood" />
+    <S.HeaderBar backgroundImage={bannerImg}>
+      <S.Logo src={logo} alt="efood" />
       <nav>
         {isRestaurantesPage ? (
-          <Links>
-            <LinkItem className="left">
+          <S.Links>
+            <S.LinkItem className="left">
               <a href="/">Restaurantes</a>
-            </LinkItem>
-            <LinkItem className="right">
-              <CartButton onClick={openCart}>
+            </S.LinkItem>
+            <S.LinkItem className="right">
+              <S.CartButton onClick={openCart}>
                 {items.length} produto(s) no carrinho
-              </CartButton>
-            </LinkItem>
-          </Links>
+              </S.CartButton>
+            </S.LinkItem>
+          </S.Links>
         ) : (
           <div>
-            <BannerTitle>
+            <S.BannerTitle>
               Viva experiências gastronômicas no conforto da sua casa
-            </BannerTitle>
+            </S.BannerTitle>
           </div>
         )}
       </nav>
-    </HeaderBar>
+    </S.HeaderBar>
   );
 };
 
