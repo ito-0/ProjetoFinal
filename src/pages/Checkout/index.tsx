@@ -59,7 +59,7 @@ const Checkout = ({ onBackToCart }: { onBackToCart: () => void }) => {
         .matches(/^\d{2}$/, 'Ano inválido'),
       code: Yup.string()
         .required('O campo é obrigatório')
-        .matches(/^\d{3}$/, 'Código inválido')
+        .matches(/^\d{3}$/, 'Inválido')
     }),
 
     onSubmit: (values) => {
@@ -236,7 +236,7 @@ const Checkout = ({ onBackToCart }: { onBackToCart: () => void }) => {
             </>
           </Card>
           <Button
-            title="Continuar para pagamento"
+            title=" pagamento"
             type="button"
             onClick={() => setCurrentStep('payment')}
           >
