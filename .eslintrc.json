@@ -3,7 +3,7 @@
     "browser": true,
     "es2021": true,
     "mocha": true,
-    "cypress/globals": true
+    "cypress": true
   },
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
