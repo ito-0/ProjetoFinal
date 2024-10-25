@@ -3,7 +3,7 @@
     "browser": true,
     "es2021": true,
     "mocha": true,
-    "cypress": true
+    "cypress/globals": true
   },
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
@@ -14,14 +14,16 @@
     "@typescript-eslint",
     "react",
     "react-hooks",
-    "prettier"
+    "prettier",
+    "cypress"
   ],
   "extends": [
     "eslint:recommended",
     "plugin:@typescript-eslint/recommended",
     "plugin:react/recommended",
     "plugin:react-hooks/recommended",
-    "prettier"
+    "prettier",
+    "plugin:cypress/recommended"
   ],
   "settings": {
     "react": {

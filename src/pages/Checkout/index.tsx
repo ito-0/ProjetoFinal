@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import * as Yup from 'yup';
 import { useFormik } from 'formik';
-import { Navigate } from 'react-router-dom';
+import { Navigate, useNavigate } from 'react-router-dom';
 import InputMask from 'react-input-mask';
 
 import * as S from './styles';
@@ -12,11 +12,12 @@ import Card from '../../components/Card';
 
 import { RootReducer } from '../../store';
 
-import { clear } from '../../store/reducers/cart';
+import { clear, close } from '../../store/reducers/cart';
 import { usePurchaseMutation } from '../../services/api';
 
 // Componente Checkout
 const Checkout = ({ onBackToCart }: { onBackToCart: () => void }) => {
+  const navigate = useNavigate();
   const { items } = useSelector((state: RootReducer) => state.cart);
   const dispatch = useDispatch();
   const [currentStep, setCurrentStep] = useState<
@@ -58,7 +59,7 @@ const Checkout = ({ onBackToCart }: { onBackToCart: () => void }) => {
         .required('O campo é obrigatório')
         .matches(/^\d{2}$/, 'Ano inválido'),
       code: Yup.string()
-        .required('O campo é obrigatório')
+        .required('Obrigatório')
         .matches(/^\d{3}$/, 'Inválido')
     }),
 
@@ -92,6 +93,10 @@ const Checkout = ({ onBackToCart }: { onBackToCart: () => void }) => {
       });
     }
   });
+
+  const confirmOrder = () => {
+    dispatch(close());
+  };
 
   const checkInputHasError = (fieldName: string) => {
     const isTouched = fieldName in formik.touched;
@@ -235,20 +240,22 @@ const Checkout = ({ onBackToCart }: { onBackToCart: () => void }) => {
               </S.Row>
             </>
           </Card>
-          <Button
-            title=" pagamento"
-            type="button"
-            onClick={() => setCurrentStep('payment')}
-          >
-            Continuar para pagamento
-          </Button>
-          <Button
-            title="Voltar ao carrinho"
-            type="button"
-            onClick={onBackToCart}
-          >
-            Voltar ao carrinho
-          </Button>
+          <S.ButtonGroup>
+            <Button
+              title=" pagamento"
+              type="button"
+              onClick={() => setCurrentStep('payment')}
+            >
+              Continuar para pagamento
+            </Button>
+            <Button
+              title="Voltar ao carrinho"
+              type="button"
+              onClick={onBackToCart}
+            >
+              Voltar ao carrinho
+            </Button>
+          </S.ButtonGroup>
         </S.Form>
       )}
 
@@ -346,20 +353,22 @@ const Checkout = ({ onBackToCart }: { onBackToCart: () => void }) => {
               </S.Row>
             </>
           </Card>
-          <Button
-            type="submit"
-            title="Finalizar pagamento"
-            disabled={isLoading}
-          >
-            {isLoading ? 'Finalizando pagamento...' : 'Finalizar pagamento'}
-          </Button>
-          <Button
-            title="Voltar para a edição de endereço"
-            type="button"
-            onClick={() => setCurrentStep('delivery')}
-          >
-            Voltar para a edição de endereço
-          </Button>
+          <S.ButtonGroup>
+            <Button
+              type="submit"
+              title="Finalizar pagamento"
+              disabled={isLoading}
+            >
+              {isLoading ? 'Finalizando pagamento...' : 'Finalizar pagamento'}
+            </Button>
+            <Button
+              title="Voltar para a edição de endereço"
+              type="button"
+              onClick={() => setCurrentStep('delivery')}
+            >
+              Voltar para a edição de endereço
+            </Button>
+          </S.ButtonGroup>
         </S.Form>
       )}
 
@@ -387,7 +396,10 @@ const Checkout = ({ onBackToCart }: { onBackToCart: () => void }) => {
             <Button
               type="button"
               title="Concluir"
-              onClick={() => window.location.reload()}
+              onClick={() => {
+                dispatch(close());
+                navigate('/');
+              }}
             >
               Concluir
             </Button>

@@ -8,7 +8,14 @@ type RowProps = {
 export const Form = styled.form`
   display: flex;
   flex-direction: column;
-  gap: 16px;
+
+  button {
+    margin-top: 8px;
+  }
+`;
+
+export const ButtonGroup = styled.div`
+  margin-top: 16px;
 `;
 
 export const Row = styled.div`
@@ -37,10 +44,6 @@ export const InputGroup = styled.div<RowProps>`
     width: 100%;
     font-weight: bold;
     padding: 8px;
-  }
-
-  &.error {
-    border: 1px solid red;
   }
 
   .error-message {
