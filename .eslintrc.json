@@ -14,8 +14,7 @@
     "@typescript-eslint",
     "react",
     "react-hooks",
-    "prettier",
-    "cypress"
+    "prettier"
   ],
   "extends": [
     "eslint:recommended",
