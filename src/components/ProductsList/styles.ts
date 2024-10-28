@@ -24,6 +24,8 @@ export const ProdList = styled.div`
   row-gap: 40px;
   column-gap: 80px;
   margin-top: 40px;
+  margin: 0 auto;
+  max-width: 1024px;
 
   @media (max-width: ${breakpoints.tablet}) {
     grid-template-columns: 1fr;
